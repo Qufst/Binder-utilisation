@@ -1,0 +1,18 @@
+# Micromamba environment file
+# https://marketplace.visualstudio.com/items?itemName=corker.vscode-micromamba
+
+name: teststagiaire
+notebook-links: true
+channels: 
+  - conda-forge
+  - defaults
+dependencies: 
+  - python=3.12
+  - ipykernel
+  - papermill
+  - jupyter
+#  - numpy
+#  - pandas
+# - seaborn
+# - scikit-learn
+# - matplotlib
