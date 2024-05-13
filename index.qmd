@@ -1,0 +1,28 @@
+
+
+# Rendu du Notebook
+```{python, echo = FALSE}
+from usepapermill import execute_remote_notebook, final_notebook
+final_notebook("notebok.ipynb")
+
+##{{< notebook_executed.ipynb#test echo=true >}}
+```
+
+
+```{python}
+# Importer la bibliothèque nécessaire
+import nbformat
+from nbconvert import HTMLExporter
+
+# Charger le notebook spécifié
+notebook_filename = "notebok_executed.ipynb"
+with open(notebook_filename, "r") as f:
+    notebook = nbformat.read(f, as_version=4)
+
+# Convertir le notebook en HTML
+html_exporter = HTMLExporter()
+(body, resources) = html_exporter.from_notebook_node(notebook)
+
+# Afficher la sortie HTML
+display(HTML(body))
+```
