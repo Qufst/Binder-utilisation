@@ -1,15 +1,10 @@
-# Micromamba environment file
-# https://marketplace.visualstudio.com/items?itemName=corker.vscode-micromamba
-#notebook-links: true
-channels: 
+name: my_environment
+channels:
   - conda-forge
+  - defaults
 dependencies: 
   - python=3.12
   - ipykernel
   - jupyter
   - papermill
-#numpy
-#pandas
-#seaborn
-#scikit-learn
-#matplotlib
+
