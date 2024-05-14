@@ -1,30 +1,51 @@
+name: build
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0' 
   push:
-    branches: ["main"]
+    branches:
+      - master
+      - main
 
-name: Quarto Publish
+env: # Change this if needed
+  quarto_file: template-computo-quarto
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build-deploy:
+  computorticle:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
-      - name: Check out repository
+      - name: Checking out repository
         uses: actions/checkout@v3
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-          
-      - run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r environment.yml
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Installing dependencies with Micromamba
+        uses: mamba-org/provision-with-micromamba@v14
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          cache-env: true
 
+      - name: Installing quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Install Computo extension for Quarto
+        run: |
+            quarto add --no-prompt computorg/computo-quarto-extension
+
+      - name: Rendering with Quarto
+        shell: bash -l {0}
+        run: |
+            quarto render ${{ env.quarto_file }}.qmd
+            mkdir _build
+            mv ${{ env.quarto_file }}.html _build/index.html
+            mv -vf ${{ env.quarto_file }}_files figures ${{ env.quarto_file }}.pdf _build/
+            cp environment.yml _build/
+            touch _build/.nojekyll
+
+      - name: Deploying article on github pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: _build
+          CLEAN: true
