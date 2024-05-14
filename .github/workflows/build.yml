@@ -33,12 +33,8 @@ jobs:
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
 
-      - name: Render with Quarto
-        uses: quarto-dev/quarto-actions/render@v2
-
-      - name: Publish with Quarto
+      - name: Render and Publish with Quarto
         uses: quarto-dev/quarto-actions/publish@v2
-
         with:
           target: gh-pages
 
