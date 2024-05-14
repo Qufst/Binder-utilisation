@@ -6,7 +6,7 @@ L'objectif est d'automatiser le traitement de notebook avec des cellules pythons
 
 ## Prérequis et dépendances:
 
-Pour utiliser correctement ce projet, nous vous invitons à créer un environnement virtuel contenant les dépendances virtuelles dont vous avez besoin ainsi que 'papermill' présente dans 'environment.yml'.
+Pour utiliser correctement ce projet, nous vous invitons à créer un environnement virtuel contenant les dépendances virtuelles dont vous avez besoin ainsi que 'papermill' présente dans 'environment.yml'. 
 
 ## Méthodologie:
 
