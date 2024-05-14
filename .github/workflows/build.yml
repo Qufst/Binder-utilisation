@@ -24,11 +24,13 @@ jobs:
         with:
           tinytex: true
 
+      - name: Install Python dependencies
+        run: |
+          python3 -m pip install jupyter nbformat
       - name: Render and Publish with Quarto
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          environment-name: bind-env
 
 env: # Change this if needed
   quarto_file: index
