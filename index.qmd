@@ -1,11 +1,7 @@
+```{python}
+from usepapermill import execute_remote_notebook 
+execute_remote_notebook ("notebok.ipynb")
 
-
-# Rendu du Notebook
-```{python, echo = FALSE}
-from usepapermill import execute_remote_notebook, final_notebook
-final_notebook("notebok.ipynb")
-
-##{{< notebook_executed.ipynb#test echo=true >}}
 ```
 
 
@@ -13,9 +9,11 @@ final_notebook("notebok.ipynb")
 # Importer la bibliothèque nécessaire
 import nbformat
 from nbconvert import HTMLExporter
+from IPython.display import HTML
+
 
 # Charger le notebook spécifié
-notebook_filename = "notebok_executed.ipynb"
+notebook_filename = "notebok.ipynb_executed.ipynb"
 with open(notebook_filename, "r") as f:
     notebook = nbformat.read(f, as_version=4)
 
