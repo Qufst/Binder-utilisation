@@ -12,7 +12,7 @@ env: # Change this if needed
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  computorticle:
+  usebinder:
     runs-on: ubuntu-latest
 
     steps:
