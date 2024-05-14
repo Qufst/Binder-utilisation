@@ -8,7 +8,7 @@ on:
       - main
 
 env: # Change this if needed
-  quarto_file: template-computo-quarto
+  quarto_file: index.qmd
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
