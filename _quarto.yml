@@ -9,10 +9,10 @@ website:
   page-navigation: true
   back-to-top-navigation: true
   title: "Use Binder to execute a notebook and render it in a quarto"
-  href: index.qmd
   navbar:
     search: true
     tools: 
       - icon: github
         href: https://github.com/Qufst/Binder_utilisation
         text: GitHub
+
