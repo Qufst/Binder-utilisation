@@ -6,10 +6,6 @@ on:
   push:
     branches: ["main"]
 
-env: # Change this if needed
-  quarto_file: index
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   usebinder:
     runs-on: ubuntu-latest
@@ -28,12 +24,11 @@ jobs:
         with:
           tinytex: true
 
-      - name: Install Computo extension for Quarto
-        run: |
-            quarto add --no-prompt computorg/computo-quarto-extension
-
       - name: Render and Publish with Quarto
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
 
+env: # Change this if needed
+  quarto_file: index
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
