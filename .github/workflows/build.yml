@@ -43,7 +43,7 @@ jobs:
             touch _build/.nojekyll
 
       - name: Deploying article on github pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
           BRANCH: gh-pages
           FOLDER: _build
