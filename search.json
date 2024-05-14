@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Use Binder to execute a notebook and render it in a quarto",
+    "section": "",
+    "text": "from usepapermill import execute_remote_notebook \nexecute_remote_notebook (\"notebok.ipynb\")\n\n\n\n\n'notebok.ipynb_executed.ipynb'\n\n\n\n# Importer la bibliothèque nécessaire\nimport nbformat\nfrom nbconvert import HTMLExporter\nfrom IPython.display import HTML\n\n\n# Charger le notebook spécifié\nnotebook_filename = \"notebok.ipynb_executed.ipynb\"\nwith open(notebook_filename, \"r\") as f:\n    notebook = nbformat.read(f, as_version=4)\n\n# Convertir le notebook en HTML\nhtml_exporter = HTMLExporter()\n(body, resources) = html_exporter.from_notebook_node(notebook)\n\n# Afficher la sortie HTML\ndisplay(HTML(body))\n\n\n\n\n\n\nNotebook\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn [1]:\n\n\n# label: test\ndef somme(a,b):\n    return a+b\nprint(somme(3,5))\n\n\n\n\n\n\n\n\n\n\n\n\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  }
+]
