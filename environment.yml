@@ -1,7 +1,6 @@
 # Micromamba environment file
 # https://marketplace.visualstudio.com/items?itemName=corker.vscode-micromamba
 #notebook-links: true
-name: teststagiaire
 channels: 
   - conda-forge
   - defaults
