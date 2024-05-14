@@ -1,4 +1,4 @@
-
+name: bind-env
 channels:
   - conda-forge
   - defaults
