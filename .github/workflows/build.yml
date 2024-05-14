@@ -9,6 +9,8 @@ on:
 jobs:
   usebinder:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checking out repository
