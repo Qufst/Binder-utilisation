@@ -28,6 +28,7 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          environment-name: bind-env
 
 env: # Change this if needed
   quarto_file: index
