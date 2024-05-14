@@ -34,6 +34,7 @@ jobs:
             quarto add --no-prompt computorg/computo-quarto-extension
 
       - name: Render and Publish
+        uses: quarto-dev/quarto-actions/render@v2      
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
